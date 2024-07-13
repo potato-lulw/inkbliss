@@ -5,6 +5,7 @@ import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { ToggleTheme } from './ToggleTheme'
 import { useTheme } from 'next-themes'
+import { LoginLink, RegisterLink } from '@kinde-oss/kinde-auth-nextjs'
 
 const Header = () => {
     const { theme } = useTheme();
@@ -58,8 +59,9 @@ const Header = () => {
 
                     <div className="flex items-center gap-4">
                         <div className="sm:flex sm:gap-4">
-                            <Button variant={"ghost"} className=' sm:flex'>Login</Button>
-                            <Button variant={"default"} className='hidden sm:flex'>Register</Button>
+                            <Button variant={"ghost"} className=' sm:flex'>
+                                <LoginLink>Login</LoginLink></Button>
+                            <Button variant={"default"} className='hidden sm:flex'><RegisterLink>Register</RegisterLink></Button>
                             <ToggleTheme />
                         </div>
 
