@@ -4,6 +4,7 @@ import { useKindeBrowserClient } from '@kinde-oss/kinde-auth-nextjs';
 import { useConvex } from 'convex/react';
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
+import Sidebar from './components/Sidebar';
 
 const DashboardLayout = ({children,}: Readonly<{children: React.ReactNode;}>) => {
     const router = useRouter();
@@ -24,7 +25,14 @@ const DashboardLayout = ({children,}: Readonly<{children: React.ReactNode;}>) =>
         }   
     }
     return (
-        <div>{children}</div>
+        <div className='grid grid-cols-4'>
+            <div>
+                <Sidebar/>
+            </div>
+            <div className='grid grid-cols-3'>
+                {children}
+            </div>
+        </div>
     )
 }
 

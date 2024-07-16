@@ -1,4 +1,5 @@
 "use client"
+import { ToggleTheme } from '@/app/components/ToggleTheme'
 import { Button } from '@/components/ui/button'
 import { api } from '@/convex/_generated/api'
 import { LogoutLink, useKindeBrowserClient } from '@kinde-oss/kinde-auth-nextjs'
@@ -35,6 +36,7 @@ const DashBoardPage = () => {
     return (
         <div>
             <Button><LogoutLink>Log out</LogoutLink></Button>
+            <ToggleTheme/>
         </div>
     )
 }
