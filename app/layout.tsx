@@ -5,6 +5,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ConvexClientProvider } from "./ConvexClientProvider";
 import { Toaster } from "@/components/ui/sonner";
+import { FilesContextProvider } from "./_context/FilesListContext";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -28,8 +29,10 @@ export default function RootLayout({
             defaultTheme="system"
             enableSystem
             disableTransitionOnChange
-          >
+          > 
+            <FilesContextProvider>
             {children}
+            </FilesContextProvider>
             <Toaster richColors/>
           </ThemeProvider>
         </ConvexClientProvider>

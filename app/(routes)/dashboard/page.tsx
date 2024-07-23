@@ -1,10 +1,11 @@
 "use client"
 import { ToggleTheme } from '@/app/components/ToggleTheme'
-import { Button } from '@/components/ui/button'
 import { api } from '@/convex/_generated/api'
-import { LogoutLink, useKindeBrowserClient } from '@kinde-oss/kinde-auth-nextjs'
-import { useConvex, useMutation, useQuery } from 'convex/react'
+import { useKindeBrowserClient } from '@kinde-oss/kinde-auth-nextjs'
+import { useConvex, useMutation } from 'convex/react'
 import React, { useEffect } from 'react'
+import Header from './components/Header'
+import FileList from './components/FileList'
 
 
 const DashBoardPage = () => {
@@ -35,7 +36,8 @@ const DashBoardPage = () => {
     }
     return (
         <div>
-            <Button><LogoutLink>Log out</LogoutLink></Button>
+            <Header/>
+            <FileList/>
             <ToggleTheme/>
         </div>
     )

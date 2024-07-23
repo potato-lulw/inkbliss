@@ -3,35 +3,38 @@ import { api } from '@/convex/_generated/api';
 import { useKindeBrowserClient } from '@kinde-oss/kinde-auth-nextjs';
 import { useConvex } from 'convex/react';
 import { useRouter } from 'next/navigation';
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import Sidebar from './components/Sidebar';
+import { FilesContextProvider } from '@/app/_context/FilesListContext';
 
-const DashboardLayout = ({children,}: Readonly<{children: React.ReactNode;}>) => {
+const DashboardLayout = ({ children, }: Readonly<{ children: React.ReactNode; }>) => {
     const router = useRouter();
     const convex = useConvex();
-    const {user}: any = useKindeBrowserClient();
+    const { user }: any = useKindeBrowserClient();
 
+    const checkTeam = useCallback(async () => {
+        const result = await convex.query(api.teams.getTeam, { email: user?.email });
+        // console.log(result);
+        if (!result?.length) {
+            router.push("teams/create")
+        }
+    }, [convex, router, user])
     useEffect(() => {
-        if(user) {
+        if (user) {
             checkTeam()
         }
-    }, [user])
+    }, [user, checkTeam])
 
-    const checkTeam = async () => {
-        const result = await convex.query(api.teams.getTeam, {email: user?.email});
-        console.log(result);
-        if(!result?.length) {
-            router.push("teams/create")
-        }   
-    }
     return (
-        <div className='grid grid-cols-4'>
-            <div>
-                <Sidebar/>
-            </div>
-            <div className='grid grid-cols-3'>
-                {children}
-            </div>
+        <div className='flex h-screen'>
+
+                <div className='fixed h-screen w-72'>
+                    <Sidebar />
+                </div>
+                <div className='flex-1 ml-72'>
+                    {children}
+                </div>
+            
         </div>
     )
 }
