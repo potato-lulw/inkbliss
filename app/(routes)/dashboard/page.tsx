@@ -15,25 +15,26 @@ const DashBoardPage = () => {
     const createUser = useMutation(api.user.createUser);
 
     useEffect(() => {
+        const checkUser = async () => {
+            const result = await convex.query(api.user.getUser, { email: user?.email });
+            if (!result?.length) {
+                createUser({
+                    name: user.given_name,
+                    email: user.email,
+                    image: user.picture
+                }).then((resp) => {
+                    console.log(resp)
+                })
+            }
+    
+        }
         if (user) {
             checkUser()
         }
-    }, [user])
+    }, [user, convex, createUser])
 
 
-    const checkUser = async () => {
-        const result = await convex.query(api.user.getUser, { email: user?.email });
-        if (!result?.length) {
-            createUser({
-                name: user.given_name,
-                email: user.email,
-                image: user.picture
-            }).then((resp) => {
-                console.log(resp)
-            })
-        }
-
-    }
+   
     return (
         <div>
             <Header/>

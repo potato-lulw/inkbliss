@@ -22,6 +22,7 @@ import { Archive, Delete, Edit, MoreVertical } from 'lucide-react';
 import Image from 'next/image';
 import React, { useEffect } from 'react'
 import { useRouter } from 'next/navigation';
+import CustomDropDown from '@/components/ui/CustomDropDown';
 
 
 
@@ -79,17 +80,7 @@ const FileList = () => {
               <TableCell className="" >
 
 
-                <DropdownMenu>
-                  <DropdownMenuTrigger className='focus:outline-none'><MoreVertical size={20} className='cursor-pointer' /></DropdownMenuTrigger>
-                  <DropdownMenuContent>
-                    <DropdownMenuLabel>Options</DropdownMenuLabel>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuItem className='gap-2'><Archive className='h-4 w-4'/> Archive</DropdownMenuItem>
-                    <DropdownMenuItem className='gap-2'><Delete className='h-4 w-4'/> Delte</DropdownMenuItem>
-                    <DropdownMenuItem className='gap-2'><Edit className='h-4 w-4'/> Edit</DropdownMenuItem>
-                    
-                  </DropdownMenuContent>
-                </DropdownMenu>
+                <CustomDropDown/>
               </TableCell>
             </TableRow>
           ))}
