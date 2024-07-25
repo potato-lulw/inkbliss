@@ -48,7 +48,7 @@ const Header = () => {
             </div>
 
             <div className='relative flex items-center gap-2'>
-                <ToggleTheme/>
+                
 
                 <Search className='absolute left-3' size={20} />
                 <Input type="text" placeholder='Search' className='w-40  pl-10' value={search} onChange={(e) => setSearch(e.target.value)}/>
@@ -57,6 +57,7 @@ const Header = () => {
                 }
                 
                 <Button className='flex gap-2'><Send/> Invite</Button>
+                <ToggleTheme/>
             </div>
             
         </header>
