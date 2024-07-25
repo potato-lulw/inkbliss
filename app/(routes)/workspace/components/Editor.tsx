@@ -73,7 +73,7 @@ const ContentEditor = ({onSaveTrigger, fileId, documentData}: any) => {
 
   useEffect(() => {
     console.log(onSaveTrigger);
-     onSaveDocument();
+     onSaveTrigger && onSaveDocument();
   }, [onSaveTrigger])
 
   useEffect(() => {

@@ -14,6 +14,8 @@ import {
 } from "@/components/ui/dialog"
 import { Input } from '@/components/ui/input'
 import { DialogClose } from '@radix-ui/react-dialog'
+import { constant } from '@/app/constant/constant'
+import Pricing from './Pricing'
 
 export interface SidebarBottomProps {
     onFileCreate: (fileName: string) => void;
@@ -59,7 +61,7 @@ const SidebarBottom: React.FC<SidebarBottomProps> = ({ onFileCreate, progress })
             {/* dialog */}
 
             <Dialog>
-                <DialogTrigger className='w-full' asChild>
+                <DialogTrigger className='w-full' asChild disabled={constant.MAX_FILES_LIMIT <= progress}>
                     <Button className='w-full flex justify-between' variant={'outline'} >
                         New File
                         <FaAngleDown />
@@ -81,6 +83,8 @@ const SidebarBottom: React.FC<SidebarBottomProps> = ({ onFileCreate, progress })
                     </DialogFooter>
                 </DialogContent>
             </Dialog>
+
+            {constant.MAX_FILES_LIMIT === progress && <Pricing/>}
 
 
             {/* progress */}

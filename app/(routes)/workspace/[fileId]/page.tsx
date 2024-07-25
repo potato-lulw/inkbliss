@@ -12,6 +12,10 @@ const Editor = dynamic(() => import('../components/Editor'), {
 })
 // import Editor from '../components/Editor';
 import dynamic from 'next/dynamic';
+// import Excali from '../components/Excali';
+const Excali =dynamic(() => import('../components/Excali'), {
+  ssr: false,
+})
 
 interface WorkSpacePageProps {
   params: {
@@ -32,6 +36,7 @@ const WorkSpacePage = ({ params: { fileId } }: WorkSpacePageProps) => {
       console.log(result);
       setFileName(result[0].fileName);
       setFile(result[0]);
+      
     };
     getFile();
   }, [convex, fileId]);
@@ -49,7 +54,7 @@ const WorkSpacePage = ({ params: { fileId } }: WorkSpacePageProps) => {
           <ResizableHandle className='text-primary' />
           <ResizablePanel defaultSize={60}>
             <div className='p-3 h-full overflow-auto'>
-              Test
+              <Excali onSaveTrigger = {triggerSave} setOnSaveTrigger = {setTriggerSave} whiteboardData = {file?.whiteboard || ""} fileId = {fileId} />
             </div>
           </ResizablePanel>
         </ResizablePanelGroup>

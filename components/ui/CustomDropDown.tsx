@@ -17,7 +17,7 @@ const CustomDropDown = () => {
                 <DropdownMenuLabel>Options</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem className='gap-2'><Archive className='h-4 w-4' /> Archive</DropdownMenuItem>
-                <DropdownMenuItem className='gap-2'><Delete className='h-4 w-4' /> Delte</DropdownMenuItem>
+                <DropdownMenuItem className='gap-2'><Delete className='h-4 w-4' /> Delete</DropdownMenuItem>
                 <DropdownMenuItem className='gap-2'><Edit className='h-4 w-4' /> Edit</DropdownMenuItem>
             </DropdownMenuContent>
         </DropdownMenu>

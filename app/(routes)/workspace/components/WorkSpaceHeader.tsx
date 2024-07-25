@@ -11,6 +11,7 @@ import { Button } from '@/components/ui/button';
 import { FaRegCommentAlt } from 'react-icons/fa';
 import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card';
 import { useKindeBrowserClient } from '@kinde-oss/kinde-auth-nextjs';
+import { ToggleTheme } from '@/app/components/ToggleTheme';
 
 const LOGO_LIGHT = "/images/inkbliss-logo.png";
 const LOGO_DARK = "/images/inkbliss-logo-light.png";
@@ -45,7 +46,7 @@ const WorkSpaceHeader = (props: any) => {
       </div>
 
       <div className='flex gap-3 items-center'>
-
+        <ToggleTheme/>
         <Button size={'sm'} className='gap-2 items-center flex ' onClick={props.onSave}>Save <Save className='' size={18} /></Button>
         <Button variant={"secondary"} size={'sm'} className='gap-2 items-center flex '>Share <Share className='' size={18} /></Button>
         <FaRegCommentAlt />

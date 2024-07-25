@@ -33,7 +33,7 @@ export default function RootLayout({
             <FilesContextProvider>
             {children}
             </FilesContextProvider>
-            <Toaster richColors/>
+            <Toaster richColors expand/>
           </ThemeProvider>
         </ConvexClientProvider>
       </body>

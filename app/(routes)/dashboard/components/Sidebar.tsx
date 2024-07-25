@@ -17,6 +17,7 @@ import SidebarBottom, { SidebarBottomProps } from './SidebarBottom';
 import { PopoverClose } from '@radix-ui/react-popover';
 import { toast } from 'sonner';
 import { useFilesContext } from '@/app/_context/FilesListContext';
+import { constant } from '@/app/constant/constant';
 
 export interface Team {
     createdBy: string,
@@ -36,6 +37,8 @@ export interface File {
 const LOGO_LIGHT = "/images/inkbliss-logo.png";
 const LOGO_DARK = "/images/inkbliss-logo-light.png";
 const USER_PLACEHOLDER = "/images/user-placeholder.png";
+const FILE_LIMIT = constant.MAX_FILES_LIMIT;
+
 
 const Sidebar = () => {
     const { theme } = useTheme();
@@ -92,6 +95,8 @@ const Sidebar = () => {
     }, [theme]);
 
     const handleFileCreate: SidebarBottomProps['onFileCreate'] = (fileName) => {
+
+        
         createFile({
             fileName,
             teamId: selectedTeam?._id,
