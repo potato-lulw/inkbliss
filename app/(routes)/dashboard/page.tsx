@@ -1,5 +1,5 @@
 "use client"
-import { ToggleTheme } from '@/app/components/ToggleTheme'
+
 import { api } from '@/convex/_generated/api'
 import { useKindeBrowserClient } from '@kinde-oss/kinde-auth-nextjs'
 import { useConvex, useMutation } from 'convex/react'
@@ -39,7 +39,7 @@ const DashBoardPage = () => {
         <div>
             <Header/>
             <FileList/>
-            <ToggleTheme/>
+            
         </div>
     )
 }

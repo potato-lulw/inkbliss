@@ -1,3 +1,4 @@
+import { ToggleTheme } from '@/app/components/ToggleTheme';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input'
 import { useKindeBrowserClient } from '@kinde-oss/kinde-auth-nextjs';
@@ -47,6 +48,7 @@ const Header = () => {
             </div>
 
             <div className='relative flex items-center gap-2'>
+                <ToggleTheme/>
 
                 <Search className='absolute left-3' size={20} />
                 <Input type="text" placeholder='Search' className='w-40  pl-10' value={search} onChange={(e) => setSearch(e.target.value)}/>
