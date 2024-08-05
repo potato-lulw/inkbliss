@@ -32,7 +32,7 @@ const Header = () => {
                         </Link>
                     </div>
 
-                    <div className="hidden md:block">
+                    {/* <div className="hidden md:block">
                         <nav aria-label="Global">
                             <ul className="flex items-center gap-6 text-sm">
                                 <li>
@@ -55,7 +55,7 @@ const Header = () => {
                                 </li>
                             </ul>
                         </nav>
-                    </div>
+                    </div> */}
 
                     <div className="flex items-center gap-4">
                         <div className="sm:flex sm:gap-4">
